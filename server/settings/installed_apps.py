@@ -1,10 +1,14 @@
 PROJECT_APPS = [
-
+    'server.apps.manga',
+    'server.apps.user',
 ]
 
 OTHER_APPS = [
     'jazzmin',
     'drf_yasg',
+    'rest_framework_simplejwt',
+    'rest_framework',
+    'avatar',
 ]
 
 DJANGO_APPS = [
