@@ -11,6 +11,7 @@ OTHER_APPS = [
     'rest_framework_simplejwt',
     'rest_framework',
     'avatar',
+    'django_filters',
 ]
 
 DJANGO_APPS = [
