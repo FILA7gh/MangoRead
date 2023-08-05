@@ -2,6 +2,7 @@ PROJECT_APPS = [
     'server.apps.manga',
     'server.apps.user',
     'server.apps.about_us',
+    'server.apps.reviews',
 ]
 
 OTHER_APPS = [

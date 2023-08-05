@@ -1,4 +1,6 @@
 from rest_framework import viewsets
+
+from server.core.paginations import PaginationForTen
 from . import models, serializers, utils, permissions
 
 
@@ -6,7 +8,7 @@ class GenreViewSet(viewsets.ModelViewSet):
     queryset = models.Genre.objects.all().order_by('id')
     serializer_class = serializers.GenreSerializer
     permission_classes = [permissions.IsAdminOrReadOnly]
-    pagination_class = utils.GenrePagination
+    pagination_class = PaginationForTen
 
 
 class MangaViewSet(viewsets.ModelViewSet):

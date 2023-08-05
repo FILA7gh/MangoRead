@@ -12,7 +12,9 @@ urlpatterns = [
 
     path('api/v1/users/', include('server.apps.user.urls')),
 
-    path('api/v1/about-us/', include('server.apps.about_us.urls'))
+    path('api/v1/about-us/', include('server.apps.about_us.urls')),
+
+    path('api/v1/reviews/', include('server.apps.reviews.urls')),
 
 ] + static(MEDIA_URL, document_root=MEDIA_ROOT)
 
