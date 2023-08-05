@@ -1,12 +1,14 @@
+from decouple import config
+
 from .database import *
 from .jwt import *
 from .jazzmin import *
 from .installed_apps import *
 
 
-SECRET_KEY = 'django-insecure-cj3)1x%#p78ir4xzm#pqe#k8v7&(!^a*^&d(@4cpb+*au2414c'
+SECRET_KEY = config('SECRET_KEY')
 
-DEBUG = True
+DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = []
 
