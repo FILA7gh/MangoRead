@@ -1,6 +1,7 @@
 PROJECT_APPS = [
     'server.apps.manga',
     'server.apps.user',
+    'server.apps.about_us',
 ]
 
 OTHER_APPS = [
