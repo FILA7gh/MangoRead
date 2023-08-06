@@ -16,6 +16,9 @@ python manage.py migrate
 Создать суперпользователя для доступа к админке:
 python manage.py createsuperuser
 
+Запуск тестов:
+python manage.py test
+
 Запуск приложения:
 python manage.py runserver
 
