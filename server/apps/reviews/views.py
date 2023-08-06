@@ -16,8 +16,13 @@ class ReviewAPIView(ListCreateAPIView):
         elif self.request.method == 'POST':
             return serializers.ReviewSerializer
 
+    def get_queryset(self):
+        manga_id = self.kwargs['pk']
+        return models.Review.objects.filter(manga_id=manga_id)
+
     def perform_create(self, serializer):
         user = self.request.user
         avatar, created = models.Avatar.objects.get_or_create(user=user)
         text = self.request.data.get('text')
-        serializer.save(user=user, avatar=avatar, text=text)
+        manga_id = self.kwargs['pk']
+        serializer.save(user=user, avatar=avatar, text=text, manga_id=manga_id)

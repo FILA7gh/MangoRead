@@ -12,6 +12,7 @@ OTHER_APPS = [
     'rest_framework',
     'avatar',
     'django_filters',
+    'corsheaders',
 ]
 
 DJANGO_APPS = [

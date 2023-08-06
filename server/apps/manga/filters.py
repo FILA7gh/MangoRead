@@ -3,6 +3,9 @@ from .models import Manga
 from django.db.models import Q
 
 
+''' Фильтрация по названию манги и по жанрам '''
+
+
 class MangaFilter(django_filters.FilterSet):
     title = django_filters.Filter(field_name='title', lookup_expr='icontains')
     genres_title = django_filters.Filter(method='filter_genres_title')

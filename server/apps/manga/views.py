@@ -20,6 +20,6 @@ class MangaViewSet(viewsets.ModelViewSet):
     filterset_class = filters.MangaFilter
 
     def get_serializer_class(self):
-        if self.action == 'list':
+        if self.action == 'list':  # Если 'GET' запрос
             return serializers.MangaListSerializer
         return serializers.MangaDetailSerializer

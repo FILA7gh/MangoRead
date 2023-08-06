@@ -1,30 +1,44 @@
 from rest_framework import serializers
+from server.apps.manga.models import Manga
 from . import models
 
 
-class AvatarSerializer(serializers.ModelSerializer):
+class MangaReviewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Manga
+        fields = ['title']
+
+
+class AvatarReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Avatar
         fields = ['avatar']
 
 
-class UserSerializer(serializers.ModelSerializer):
+class UserReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.User
         fields = ['username', 'first_name']
 
 
+''' Review '''
+
+
 class ReviewListSerializer(serializers.ModelSerializer):
-    avatar = AvatarSerializer()
+    avatar = AvatarReviewSerializer()
     text = serializers.CharField()
-    user = UserSerializer()
+    user = UserReviewSerializer()
+    manga = serializers.PrimaryKeyRelatedField(queryset=Manga.objects.all())
 
     class Meta:
         model = models.Review
-        fields = ['id', 'avatar', 'user', 'text']
+        fields = ['id', 'avatar', 'user', 'manga', 'text']
 
 
 class ReviewSerializer(serializers.ModelSerializer):
+    text = serializers.CharField()
+    manga = serializers.PrimaryKeyRelatedField(queryset=Manga.objects.all())
+
     class Meta:
         model = models.Review
-        fields = ['text']
+        fields = ['manga', 'text']

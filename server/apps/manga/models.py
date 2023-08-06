@@ -1,5 +1,7 @@
 from django.db import models
 
+''' Genres '''
+
 
 class Genre(models.Model):
     title = models.CharField(max_length=100)
@@ -10,6 +12,9 @@ class Genre(models.Model):
     class Meta:
         verbose_name = 'genre'
         verbose_name_plural = 'genres'
+
+
+''' Manga '''
 
 
 class Manga(models.Model):

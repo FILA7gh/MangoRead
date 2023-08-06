@@ -3,21 +3,14 @@ version: "3"
 services:
   web:
     build: .
+    command: bash -c "sleep 10 && python manage.py runserver 0.0.0.0:8000" # для синхронизации с бд
+    volumes:
+      - avatars:/path/to/avatars
+      - manga_images:/path/to/manga_image
     ports:
       - "8000:8000"
-    environment:
-      DATABASES_ENGINE: django.db.backends.postgresql
-      DATABASES_NAME: ${DB_NAME}
-      DATABASES_USER: ${DB_USER}
-      DATABASES_PASSWORD: ${DB_PASSWORD}
-      DATABASES_HOST: db
-      DATABASES_PORT: 5432
     depends_on:
       - db
-    command: bash -c "sleep 10 && python manage.py runserver 0.0.0.0:8000"
-    volumes:
-      -   avatars:/path/to/avatars
-      - manga_images:/path/to/manga_image
 
   db:
     image: postgres
@@ -28,8 +21,6 @@ services:
       POSTGRES_DB: ${DB_NAME}
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
-    ports:
-      - "5433:5432"
 
 volumes:
   pg_data:
