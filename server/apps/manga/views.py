@@ -12,6 +12,9 @@ class GenreViewSet(viewsets.ModelViewSet):
     pagination_class = PaginationForTen
 
 
+''' Manga '''
+
+
 class MangaViewSet(viewsets.ModelViewSet):
     queryset = models.Manga.objects.all().order_by('id')
     permission_classes = [permissions.IsAdminOrReadOnly]
