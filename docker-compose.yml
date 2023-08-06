@@ -22,6 +22,7 @@ services:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
 
+
 volumes:
   pg_data:
   avatars:
