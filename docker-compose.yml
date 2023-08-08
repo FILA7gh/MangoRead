@@ -2,8 +2,10 @@ version: "3"
 
 services:
   web:
-    build: .
-    command: bash -c "sleep 10 && python manage.py runserver 0.0.0.0:8000" # для синхронизации с бд
+    build:
+      context: .
+      dockerfile: Dockerfile
+
     volumes:
       - avatars:/path/to/avatars
       - manga_images:/path/to/manga_image
